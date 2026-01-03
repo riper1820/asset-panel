@@ -1,0 +1,16 @@
+{
+  "name": "com.riperbool.assetpanel",
+  "displayName": "Asset Panel",
+  "version": "0.1.0",
+  "unity": "2022.3",
+  "description": "The panel displaying the list of assets used in the world",
+  "author": {
+    "name": "riper1820",
+    "url": "https://blog.riperbool.com"
+  },
+  "license": "MIT",
+  "licenseUrl": "https://github.com/riper1820/asset-panel/blob/main/LICENSE",
+  "changelogUrl": "https://github.com/riper1820/asset-panel/blob/main/CHANGELOG.md",
+  "vpmDependencies": {},
+  "url": "https://github.com/riper1820/asset-panel/releases/download/0.1.0/com.riperbool.assetpanel-0.1.0.zip"
+}

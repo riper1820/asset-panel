@@ -1,0 +1,58 @@
+name: "Build a package"
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  packageName: com.riperbool.assetpanel
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+          
+      - name: Get Version and Package Name
+        id: package-info
+        run: |
+          version=$(jq -r '.version' package.json)
+          name=$(jq -r '.name' package.json)
+          echo "value=$version" >> $GITHUB_OUTPUT
+          echo "name=$name" >> $GITHUB_ENV
+      
+      - name: Define file names
+        id: file-names
+        run: |
+          echo "zip-file=${{ steps.package-info.outputs.name }}-${{ steps.package-info.outputs.value }}".zip >> $GITHUB_OUTPUT
+          echo "unity-package=${{ steps.package-info.outputs.name }}-${{ steps.package-info.outputs.value }}".unitypackage >> $GITHUB_OUTPUT
+      
+      - name: Create Package Zip
+        run: zip -r ${{ github.workspace }}/${{ steps.file-names.outputs.zip-file }} .
+      
+      # Build a list of .meta files for future use
+      - name: Track Package Meta Files
+        run: find . -name \*.meta >> metaList
+      
+      # Make a UnityPackage version of the Package for release
+      - name: Create UnityPackage
+        uses: pCYSl5EDgo/create-unitypackage@v1.2.3
+        with:
+          package-path: ${{ steps.file-names.outputs.unity-package }}
+          include-files: metaList
+      
+      - name: Create Tag
+        id: tag_version
+        run: |
+          gh tag ${{ steps.package-info.outputs.value }}
+      
+      - name: Make Release
+        run:
+          gh release create ${{ steps.package-info.outputs.version }} \
+              ${{ steps.file-names.outputs.zip-file }} \
+              ${{ steps.file-names.outputs.unity-package }} \
+              package.json \
+              --generate-notes

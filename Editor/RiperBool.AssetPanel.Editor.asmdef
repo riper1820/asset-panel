@@ -2,7 +2,8 @@
   "name": "RiperBool.AssetPanel.Editor",
   "rootNamespace": "RiperBool.AssetPanel",
   "references": [
-    "RiperBool.AssetPanel.Runtime"
+    "GUID:3e371ead3ba63495e94d3a139b2a04a2",
+    "GUID:6055be8ebefd69e48b49212b09b47b2f"
   ],
   "includePlatforms": [
     "Editor"

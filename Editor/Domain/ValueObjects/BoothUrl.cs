@@ -2,6 +2,9 @@ using System;
 
 namespace RiperBool.AssetPanel.Editor.Domain.ValueObjects
 {
+    /// <summary>
+    /// A value object which describes a url of an item of BOOTH
+    /// </summary>
     public record BoothUrl
     {
         private static readonly string ValidPathPattern = @"/.*/items/\d+";

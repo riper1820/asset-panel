@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace RiperBool.AssetPanel.Editor.Presentation
 {
+    /// <summary>
+    /// A window to add an asset from BOOTH to the asset list.
+    /// </summary>
     public class AddFromBoothWindow: EditorWindow
     {
         private enum FetchState
@@ -16,7 +19,7 @@ namespace RiperBool.AssetPanel.Editor.Presentation
             Error
         }
         
-        private AssetPanelDatabase _assetPanelDatabase;
+        private AssetPanel _assetPanel;
         private FetchAssetRecordFromBoothUseCase _useCase;
         private FetchState _fetchState = FetchState.Idle;
         private AssetRecord _fetchedRecord;
@@ -26,11 +29,11 @@ namespace RiperBool.AssetPanel.Editor.Presentation
         private static readonly string InfoMessage = "Due to technical limitations, the fetched data may contain errors.\n"+
                                                      "You can manually edit it from the inspector after adding it to the list. ";
 
-        public static void ShowWindow(AssetPanelDatabase assetPanelDatabase, FetchAssetRecordFromBoothUseCase useCase)
+        public static void ShowWindow(AssetPanel assetPanel, FetchAssetRecordFromBoothUseCase useCase)
         {
             var window = GetWindow<AddFromBoothWindow>();
             window._useCase = useCase;
-            window._assetPanelDatabase = assetPanelDatabase;
+            window._assetPanel = assetPanel;
             window.ShowUtility();
         }
 
@@ -71,7 +74,7 @@ namespace RiperBool.AssetPanel.Editor.Presentation
             EditorGUILayout.LabelField("URL:", _fetchedRecord.Url);
             if (GUILayout.Button("Add to List", GUILayout.Width(150), GUILayout.Height(30)))
             {
-                _assetPanelDatabase.Assets.Add(_fetchedRecord);
+                _assetPanel.Assets.Add(_fetchedRecord);
                 Close();
             }
         }
@@ -83,7 +86,7 @@ namespace RiperBool.AssetPanel.Editor.Presentation
             GUILayout.Label(_fetchException.StackTrace);
             Debug.LogError(_fetchException);
         }
-
+        
         private async void Fetch()
         {
             

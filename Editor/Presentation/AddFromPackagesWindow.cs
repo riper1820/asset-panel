@@ -6,19 +6,22 @@ using UnityEngine;
 
 namespace RiperBool.AssetPanel.Editor.Presentation
 {
+    /// <summary>
+    /// A window to add an asset from packages of UPM and VPM to the asset list.
+    /// </summary>
     public class AddFromPackagesWindow: EditorWindow
     {
         private List<AssetRecord> _packageRecords;
-        private AssetPanelDatabase _assetPanelDatabase;
+        private AssetPanel _assetPanel;
         private FetchAssetRecordsFromPackagesUseCase _useCase;
         private Vector2 _scrollPosition;
         private readonly Dictionary<string, bool> _foldoutStates = new Dictionary<string, bool>();
         
-        public static void ShowWindow(AssetPanelDatabase assetPanelDatabase, FetchAssetRecordsFromPackagesUseCase useCase)
+        public static void ShowWindow(AssetPanel assetPanel, FetchAssetRecordsFromPackagesUseCase useCase)
         {
             var window = GetWindow<AddFromPackagesWindow>("Add From Packages");
             window._useCase = useCase;
-            window._assetPanelDatabase = assetPanelDatabase;
+            window._assetPanel = assetPanel;
             window.RefreshPackageRecords();
             window.ShowUtility();
         }
@@ -48,12 +51,10 @@ namespace RiperBool.AssetPanel.Editor.Presentation
         
         private void DrawAssetRecord(AssetRecord record)
         {
-            // パッケージごとにボックスで囲む
             using (new EditorGUILayout.VerticalScope(GUI.skin.box))
             {
                 using (new EditorGUILayout.HorizontalScope())
                 {
-                    // 折りたたみアイコンとパッケージ名
                     _foldoutStates.TryAdd(record.AssetName, false);
             
                     _foldoutStates[record.AssetName] = EditorGUILayout.Foldout(
@@ -64,14 +65,13 @@ namespace RiperBool.AssetPanel.Editor.Presentation
                     );
             
                     GUILayout.FlexibleSpace();
-            
-                    // 選択ボタン
+                    
                     if (GUILayout.Button("Select", GUILayout.Width(60), GUILayout.Height(20)))
                     {
                         SelectPackage(record);
                     }
                 }
-                // 詳細情報（折りたたみ時に表示）
+
                 if (_foldoutStates[record.AssetName])
                 {
                     EditorGUI.indentLevel++;
@@ -89,8 +89,8 @@ namespace RiperBool.AssetPanel.Editor.Presentation
         
         private void SelectPackage(AssetRecord record)
         {
-            _assetPanelDatabase.Assets.Add(record);
-            EditorUtility.SetDirty(_assetPanelDatabase);
+            _assetPanel.Assets.Add(record);
+            EditorUtility.SetDirty(_assetPanel);
             AssetDatabase.SaveAssets();
             Close();
         }

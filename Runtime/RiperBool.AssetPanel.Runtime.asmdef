@@ -1,9 +1,7 @@
 {
   "name": "RiperBool.AssetPanel.Runtime",
   "rootNamespace": "RiperBool.AssetPanel",
-  "references": [
-    "Unity.TextMeshPro"
-  ],
+  "references": [],
   "includePlatforms": [],
   "excludePlatforms": [],
   "allowUnsafeCode": false,

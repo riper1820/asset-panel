@@ -38,11 +38,17 @@ jobs:
             -x '*node_modules*' \
             -x '*.DS_Store' \
             -x 'vpm.json'
+          
+      - name: Create Unitypackage Directory Structure
+        run: |
+          mkdir -r Packages/${{ steps.package-info.outputs.name }}
+          rsync -av --exclude='Packages' . Packages/${{ steps.package-info.outputs.name }}
+          ls Packages/${{ steps.package-info.outputs.name }}
       
       # Build a list of .meta files for future use
       - name: Track Package Meta Files
         run: |
-          find "./" -name \*.meta \
+          find "Packages/${{ steps.package-info.outputs.name }}" -name \*.meta \
             ! -path "*/.git/*" \
             ! -path "*/.github/*" \
             ! -path "*/node_modules/*" \

@@ -41,7 +41,7 @@ jobs:
           
       - name: Create Unitypackage Directory Structure
         run: |
-          mkdir -r Packages/${{ steps.package-info.outputs.name }}
+          mkdir -p Packages/${{ steps.package-info.outputs.name }}
           rsync -av --exclude='Packages' . Packages/${{ steps.package-info.outputs.name }}
           ls Packages/${{ steps.package-info.outputs.name }}
       

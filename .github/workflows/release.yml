@@ -40,12 +40,12 @@ jobs:
       
       # Build a list of .meta files for future use
       - name: Track Package Meta Files
-          run: |
-            find . -name \*.meta \
-              ! -path "*/.git/*" \
-              ! -path "*/.github/*" \
-              ! -path "*/node_modules/*" \
-              >> metaList
+        run: |
+          find . -name \*.meta \
+            ! -path "*/.git/*" \
+            ! -path "*/.github/*" \
+            ! -path "*/node_modules/*" \
+            >> metaList
       
       # Make a UnityPackage version of the Package for release
       - name: Create UnityPackage

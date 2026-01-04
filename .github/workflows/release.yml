@@ -49,6 +49,7 @@ jobs:
             ! -path "*/.DS_Store" \
             ! -name "vpm.json.meta" \
             >> metaList
+          cat metaList
       
       # Make a UnityPackage version of the Package for release
       - name: Create UnityPackage

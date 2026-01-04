@@ -56,7 +56,7 @@ jobs:
       
       - name: Make Release
         run: |
-          gh release create ${{ steps.package-info.outputs.version }} \
+          gh release create v${{ steps.package-info.outputs.version }} \
               ${{ steps.file-names.outputs.zip-file }} \
               ${{ steps.file-names.outputs.unity-package }} \
               package.json \

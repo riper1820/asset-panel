@@ -15,11 +15,20 @@ You can also add or edit assets manually.
 
 ### Install via VPM (Recommended)
 
-(Coming soon)
+Install [VCC](https://vcc.docs.vrchat.com) or [ALCOM](https://vrc-get.anatawa12.com/en/alcom/) prior to installation.
+
+Click [this link](vcc://vpm/addRepo?url=https://raw.githubusercontent.com/riper1820/asset-panel/refs/heads/main/vpm.json)
+to add the repository to VCC or ALCOM.
+
+If the link does not work, please manually add `https://raw.githubusercontent.com/riper1820/asset-panel/refs/heads/main/vpm.json`.
+
+After that, add `Asset Panel` in the package management window of VPM or ALCOM.
 
 ### Install via UnityPackage
 
-(Coming soon)
+Download the file with the `.unitypackage` extension from the [GitHub Releases page](https://github.com/riper1820/asset-panel/releases).
+
+Import the downloaded UnityPackage into the Unity Editor.
 
 ## Usage
 

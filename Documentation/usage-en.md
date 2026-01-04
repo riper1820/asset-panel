@@ -17,8 +17,11 @@ You can also add or edit assets manually.
 
 Install [VCC](https://vcc.docs.vrchat.com) or [ALCOM](https://vrc-get.anatawa12.com/en/alcom/) prior to installation.
 
-Click [this link](vcc://vpm/addRepo?url=https://raw.githubusercontent.com/riper1820/asset-panel/refs/heads/main/vpm.json)
-to add the repository to VCC or ALCOM.
+Click the logo below to add the repository to VCC or ALCOM.
+
+<a href="vcc://vpm/addRepo?url=https://raw.githubusercontent.com/riper1820/asset-panel/refs/heads/main/vpm.json">
+  <img src="https://img.shields.io/badge/Add%20to-VCC-blue?style=social" alt="Add to VCC">
+</a>
 
 If the link does not work, please manually add `https://raw.githubusercontent.com/riper1820/asset-panel/refs/heads/main/vpm.json`.
 

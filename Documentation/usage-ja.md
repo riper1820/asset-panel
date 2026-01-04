@@ -17,8 +17,11 @@ VRChatワールドで利用中のアセットを一覧表示するためのパ�
 
 [VCC](https://vcc.docs.vrchat.com)か[ALCOM](https://vrc-get.anatawa12.com/ja/alcom/)を事前にインストールしてください。
 
-[このリンク](vcc://vpm/addRepo?url=https://raw.githubusercontent.com/riper1820/asset-panel/refs/heads/main/vpm.json)
-をクリックすると、リポジトリをVCC・ALCOMに追加できます。
+下の画像 をクリックすると、リポジトリをVCC・ALCOMに追加できます。
+
+<a href="vcc://vpm/addRepo?url=https://raw.githubusercontent.com/riper1820/asset-panel/refs/heads/main/vpm.json">
+  <img src="https://img.shields.io/badge/Add%20to-VCC-blue?style=social" alt="Add to VCC">
+</a>
 
 リンクが機能しない場合は、`https://raw.githubusercontent.com/riper1820/asset-panel/refs/heads/main/vpm.json` を手動で追加してください。
 

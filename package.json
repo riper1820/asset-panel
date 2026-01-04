@@ -3,7 +3,7 @@
   "displayName": "Asset Panel",
   "version": "0.1.0",
   "unity": "2022.3",
-  "description": "The panel displaying the list of assets used in the world",
+  "description": "The panel which displays the list of assets used in your world",
   "author": {
     "name": "riper1820",
     "url": "https://blog.riperbool.com"

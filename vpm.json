@@ -11,7 +11,7 @@
           "displayName": "Asset Panel",
           "version": "0.1.0",
           "unity": "2022.3",
-          "description": "The panel displaying the list of assets used in the world",
+          "description": "The panel which displays the list of assets used in your world",
           "author": {
             "name": "riper1820",
             "url": "https://blog.riperbool.com"
@@ -23,6 +23,6 @@
           "url": "https://github.com/riper1820/asset-panel/releases/download/0.1.0/com.riperbool.assetpanel-0.1.0.zip"
         }
       }
-    },
+    }
   }
 }

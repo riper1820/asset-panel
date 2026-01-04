@@ -44,11 +44,6 @@ jobs:
           package-path: ${{ steps.file-names.outputs.unity-package }}
           include-files: metaList
       
-      - name: Create Tag
-        id: tag_version
-        run: |
-          gh tag ${{ steps.package-info.outputs.value }}
-      
       - name: Make Release
         run:
           gh release create ${{ steps.package-info.outputs.version }} \

@@ -22,13 +22,13 @@ jobs:
           version=$(jq -r '.version' package.json)
           name=$(jq -r '.name' package.json)
           echo "value=$version" >> $GITHUB_OUTPUT
-          echo "name=$name" >> $GITHUB_ENV
+          echo "name=$name" >> $GITHUB_OUTPUT
       
       - name: Define file names
         id: file-names
         run: |
-          echo "zip-file=${{ steps.package-info.outputs.name }}-${{ steps.package-info.outputs.value }}".zip >> $GITHUB_OUTPUT
-          echo "unity-package=${{ steps.package-info.outputs.name }}-${{ steps.package-info.outputs.value }}".unitypackage >> $GITHUB_OUTPUT
+          echo "zip-file=${{ steps.package-info.outputs.name }}-${{ steps.package-info.outputs.value }}.zip" >> $GITHUB_OUTPUT
+          echo "unity-package=${{ steps.package-info.outputs.name }}-${{ steps.package-info.outputs.value }}.unitypackage" >> $GITHUB_OUTPUT
       
       - name: Create Package Zip
         run: zip -r ${{ github.workspace }}/${{ steps.file-names.outputs.zip-file }} .

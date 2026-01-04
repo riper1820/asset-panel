@@ -36,15 +36,18 @@ jobs:
             -x '*.git*' \
             -x '*.github*' \
             -x '*node_modules*' \
-            -x '*.DS_Store'
+            -x '*.DS_Store' \
+            -x 'vpm.json'
       
       # Build a list of .meta files for future use
       - name: Track Package Meta Files
         run: |
-          find . -name \*.meta \
+          find "./" -name \*.meta \
             ! -path "*/.git/*" \
             ! -path "*/.github/*" \
             ! -path "*/node_modules/*" \
+            ! -path "*/.DS_Store" \
+            ! -name "vpm.json.meta" \
             >> metaList
       
       # Make a UnityPackage version of the Package for release

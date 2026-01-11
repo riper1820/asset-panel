@@ -19,7 +19,7 @@ Install [VCC](https://vcc.docs.vrchat.com) or [ALCOM](https://vrc-get.anatawa12.
 
 Click the logo below to add the repository to VCC or ALCOM.
 
-Add `https://raw.githubusercontent.com/riper1820/asset-panel/refs/heads/main/vpm.json` in the VPM/ALCOM repository management window.
+Add `https://raw.githubusercontent.com/riper1820/vpm-repo/refs/heads/main/vpm.json` in the VPM/ALCOM repository management window.
 
 If the link does not work, please manually add `https://raw.githubusercontent.com/riper1820/asset-panel/refs/heads/main/vpm.json`.
 

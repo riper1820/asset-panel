@@ -17,7 +17,7 @@ VRChatワールドで利用中のアセットを一覧表示するためのパ�
 
 [VCC](https://vcc.docs.vrchat.com)か[ALCOM](https://vrc-get.anatawa12.com/ja/alcom/)を事前にインストールしてください。
 
-VPM・ALCOMのリポジトリ管理画面で、`https://raw.githubusercontent.com/riper1820/asset-panel/refs/heads/main/vpm.json` を追加してください。
+VPM・ALCOMのリポジトリ管理画面で、`https://raw.githubusercontent.com/riper1820/vpm-repo/refs/heads/main/vpm.json` を追加してください。
 
 その後、VPM・ALCOMのパッケージ管理画面で `Asset Panel` を追加してください。 
 
